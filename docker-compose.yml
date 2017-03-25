@@ -1,0 +1,33 @@
+version: '2'
+services:
+
+  server:
+    container_name: "server"
+    build: .
+    ports:
+      - "80"
+    depends_on:
+      - backend
+      - frontend
+    links:
+      - backend
+      - frontend
+    volumes:
+      - ./conf:/etc/nginx:ro
+
+  frontend:
+    container_name: "frontend"
+    build: ../on-track-frontend
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../on-track-frontend/conf:/etc/nginx:ro
+      - ../on-track-frontend/www:/usr/share/nginx/html:ro
+
+  backend:
+    container_name: "backend"
+    build: ../on-track-backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../on-track-backend/server:/usr/src/server
