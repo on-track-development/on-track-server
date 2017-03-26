@@ -26,4 +26,4 @@ services:
     container_name: "backend"
     build: ../on-track-backend
     volumes:
-      - ../on-track-backend/server:/usr/src/server
+      - ../on-track-backend/:/usr/src/app
