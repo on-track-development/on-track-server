@@ -1,6 +1,8 @@
 # on-track-server
 The on-track-server acts as proxy for the frontend and backend servers. It acts as main hub for the on-track application solution. 
 
+It runs a proxy server proxying calls to the backend and frontend servers. The frontend is located at / and the backend at /api.
+
 ## Building and launching
 ### Pre-requisites
 - docker
